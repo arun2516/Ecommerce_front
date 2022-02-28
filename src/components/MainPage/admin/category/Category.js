@@ -23,13 +23,13 @@ export default function Category() {
     const createCategory = async() => {
         try {
             if(edit) {
-                const response = await axios.put(`/api/category/${id}`, {name: category}, {
+                const response = await axios.put(`https://shoppeecom.herokuapp.com/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
                 Swal.fire("Success!", response.data.msg, "success")
             }
             else {
-                const response = await axios.post(`/api/category`, {name: category}, {
+                const response = await axios.post(`https://shoppeecom.herokuapp.com/api/category`, {name: category}, {
                     headers: {Authorization: token}
                 })
                 Swal.fire("Success!", response.data.msg, "success")
@@ -50,7 +50,7 @@ export default function Category() {
     }
     const deleteCategory = async(id) => {
          try {
-             const response = await axios.delete(`/api/category/${id}`, {
+             const response = await axios.delete(`https://shoppeecom.herokuapp.com/api/category/${id}`, {
                  headers: {Authorization: token}
              })
              Swal.fire("Success!", response.data.msg)

@@ -15,7 +15,7 @@ export default function UserAPI(token) {
         if(token) {
             const getUser = async() => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/user/infor`, {
+                    const response = await axios.get(`https://shoppeecom.herokuapp.com/user/infor`, {
                         headers: {Authorization: token}
                     })
                     setIsLogged(true)
@@ -34,13 +34,13 @@ export default function UserAPI(token) {
         if(token) {
             const getHistory = async() => {
                 if(isAdmin) {
-                    const response = await axios.get(`http://localhost:5000/api/payment`, {
+                    const response = await axios.get(`https://shoppeecom.herokuapp.com/api/payment`, {
                         headers: {Authorization: token}
                     })
                     setHistory(response.data)
                 }
                 else {
-                    const response  = await axios.get(`http://localhost:5000/user/history`, {
+                    const response  = await axios.get(`https://shoppeecom.herokuapp.com/user/history`, {
                         headers: {Authorization: token}
                     })
                     setHistory(response.data)
@@ -60,7 +60,7 @@ export default function UserAPI(token) {
         })
         if (check) {
             setCart([...cart, {...product, quantity: 1}])
-            await axios.patch('http://localhost:5000/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
+            await axios.patch('https://shoppeecom.herokuapp.com/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
               headers: {Authorization: token}
             })
             Swal.fire("Thank you!", "This product has been added to cart!", "success");

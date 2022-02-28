@@ -74,7 +74,7 @@ export default function AdminProductsList() {
             let formData = new FormData()
             formData.append("file", file)
             setLoading(true)
-            const response = await axios.post(`api/upload`, formData, {
+            const response = await axios.post(`https://shoppeecom.herokuapp.com/api/upload`, formData, {
                 headers: {"content-type":"multipart/form-data", Authorization: token}
             })
             setLoading(false)
@@ -95,7 +95,7 @@ export default function AdminProductsList() {
             setLoading(true)
             if(!isAdmin) return Swal.fire("You're not an admin")
             setLoading(true)
-            await axios.post("/api/destroy", {public_id: images.public_id}, {
+            await axios.post("https://shoppeecom.herokuapp.com/api/destroy", {public_id: images.public_id}, {
                 Authorization: token
             })
             setImages(false)
@@ -117,7 +117,7 @@ export default function AdminProductsList() {
                    })
                }
                else {
-                   await axios.post(`/api/products`, {...product, images}, {
+                   await axios.post(`https://shoppeecom.herokuapp.com/api/products`, {...product, images}, {
                        headers: {Authorization: token}
                    })
                }
@@ -131,10 +131,10 @@ export default function AdminProductsList() {
     const deleteProduct = async(id, public_id) => {
         try {
             setLoading(true)
-            const destroyImg = axios.post(`/api/destroy`, {public_id}, {
+            const destroyImg = axios.post(`https://shoppeecom.herokuapp.com/api/destroy`, {public_id}, {
                 headers: {Authorization: token}
             })
-           const deleteProduct = axios.delete(`/api/products/${id}`, {
+           const deleteProduct = axios.delete(`https://shoppeecom.herokuapp.com/api/products/${id}`, {
                headers: {Authorization: token}
            })
             await destroyImg
