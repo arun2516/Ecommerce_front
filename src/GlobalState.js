@@ -14,7 +14,7 @@ export const DataProvider = ({children}) => {
          const reftoken = localStorage.getItem('refreshtoken')
         if(login){
             const refreshToken = async () =>{
-                const response = await axios.get('https://shoppeecom.herokuapp.com/user/refresh_token',{
+                const response = await axios.post('https://shoppeecom.herokuapp.com/user/refresh_token',{
                  
                         "reftoken":reftoken
                     
