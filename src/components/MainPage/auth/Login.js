@@ -31,8 +31,9 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('https://shoppeecom.herokuapp.com/user/login', {...user})
+      const response = await axios.post('https://shoppeecom.herokuapp.com/user/login', {...user})
       localStorage.setItem('Login', true)
+      localStorage.setItem('refreshtoken',response.data.accesstoken)
       window.location.href = "/"
     } catch (err) {
       Swal.fire({
