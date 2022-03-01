@@ -15,9 +15,9 @@ export const DataProvider = ({children}) => {
         if(login){
             const refreshToken = async () =>{
                 const response = await axios.get('https://shoppeecom.herokuapp.com/user/refresh_token',{
-                 body:{
+                 
                         "reftoken":reftoken
-                    }
+                    
                 })
                 setToken(response.data.accesstoken)
                  console.log(token)
