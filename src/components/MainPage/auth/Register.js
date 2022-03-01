@@ -28,7 +28,8 @@ export default function Register() {
   const registerSubmit = async(event) => {
     event.preventDefault()
     try {
-      await axios.post('https://shoppeecom.herokuapp.com/user/register', {...user})
+      const response = await axios.post('https://shoppeecom.herokuapp.com/user/register', {...user})
+      localStorage.setItem('refreshtoken',response.data.accesstoken)
       localStorage.setItem('Login', true)
       window.location.href=('/')
 
