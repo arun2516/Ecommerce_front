@@ -71,7 +71,7 @@ export default function Login() {
               required
               fullWidth
               id="email"
-              label="Email Address:(arunbond.p710@gmail.com)"
+              label="Email Address:"
               name="email"
               autoComplete="email"
               autoFocus
@@ -83,7 +83,7 @@ export default function Login() {
               required
               fullWidth
               name="password"
-              label="Password:(1234567890)"
+              label="Password:"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -122,6 +122,13 @@ export default function Login() {
           </Box>
         </Box>
       </Container>
+    <div>
+        <h1 style={{textAlign: 'center',marginTop:"3%"}}>
+          User Credential
+        </h1>
+        <h5 style={{textAlign: 'center'}}>Email: arunbond.p710@gmail.com</h5>
+        <h5 style={{textAlign: 'center', marginRight:"4%"}}>Password: 1234567890</h5>
+      </div>
     </ThemeProvider>
     </div>
   );
